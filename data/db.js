@@ -53,8 +53,8 @@ function findCommentById(id) {
     .where('comments.id', id);
 }
 
-function insertComment(comment) {
+function insertComment(text, post_id) {
   return db('comments')
-    .insert(comment)
+    .insert({text, post_id})
     .then(ids => ({ id: ids[0] }));
 }
